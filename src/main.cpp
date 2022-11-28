@@ -47,25 +47,39 @@ const std::vector<std::string> joystick_button_names{
 };
 
 const std::vector<std::string> throttle_button_names{
-    "ButtE",
-    "ButtF",
-    "ButtG",
-    "ButtI",
-    "ButtH",
-    "Swch1",
-    "Swch2",
-    "Swch3",
-    "Swch4",
-    "Swch5",
-    "Swch6",
-    "Tgl1U",
-    "Tgl1D",
-    "Tg21U",
-    "Tg21D",
-    "Tg31U",
-    "Tg41D",
-    "Tg51U",
-    "Tg61D",
+    "ButtE", // 00
+    "ButtF", // 01
+    "ButtG", // 02
+    "ButtI", // 03
+    "ButtH", // 04
+    "Swch1", // 05
+    "Swch2", // 06
+    "Swch3", // 07
+    "Swch4", // 08
+    "Swch5", // 09
+    "Swch6", // 10
+    "Tgl1U", // 11
+    "Tgl1D", // 12
+    "Tg21U", // 13
+    "Tg21D", // 14
+    "Tg31U", // 15
+    "Tg41D", // 16
+    "Tg51U", // 17
+    "Tg61D", // 18
+    "H3Up ", // 19
+    "H3For", // 20
+    "H3Dwn", // 21
+    "H3Bck", // 22
+    "H4Up ", // 23
+    "H4For", // 24
+    "H4Dwn", // 25
+    "H4Bck", // 26
+    "KIUp ", // 27
+    "KIDwn", // 28
+    "ScrFd", // 29
+    "ScrBk", // 30
+    "ThbBt", // 31
+    "ThSld", // 32
 };
 
 struct JoystickInfo {
