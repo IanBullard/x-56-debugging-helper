@@ -224,7 +224,7 @@ int main(int argc, char** argv)
     std::chrono::duration<double> elapsed_seconds = end-start;
     double hours = elapsed_seconds.count() / 60.0 / 60.0;
 
-    fmt::print("{} events in {:2.2} hours: {:4.2} events/hour\n", event_count, hours, (double)event_count/hours);
+    fmt::print("{} events in {:.2} hours: {:.2} events/hour\n", event_count, hours, (double)event_count/hours);
 
     if(joystick)
         SDL_JoystickClose(joystick);
