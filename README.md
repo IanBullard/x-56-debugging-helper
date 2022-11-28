@@ -1,6 +1,8 @@
 # x-56-debugging-helper
 An SDL2-based input watcher to help track down ghost-inputs on the X-56 H.O.T.A.S.
 
+If you want to skip the details, the results of the tests are [here](#test-results).
+
 ## The problem
 The Logitech's X-56 H.O.T.A.S. can sometimes tell the computer that an input has happened when actually it hasn't.  This is especially common with the switches on the throttle.  However, the ghost inputs don't happen at regular intervals.  Sometimes the inputs can be 20-60 minutes apart.  
 
@@ -37,6 +39,8 @@ All files in the repository are under the MIT license.  I don't really care what
 # Notes
 This app isn't for general consumption, it's only a helper to investigate a problem and possible solutions.  I don't recommend using any of this code in a shipping product, it's written to get to provide a solution as quickly as possible and not for safety, security, or any other -ity's.  It's not my best work, but it's also not my worst.
 
+The code does translate input information from SDL2 to text that matches the labels on the devices, but not for all input.  I covered the main inputs and the switches on the throttle to cover common input and the input switches that are usually the source of the ghost input.  I'll fill out more input labels if needed.
+
 # To Do
 * run tests
 
@@ -49,3 +53,8 @@ To run:
 
 `./build/windows/x64/release/console.exe`
 
+# Test Results
+
+## Just the throttle connected directly into my PC
+
+Currently in progress.
