@@ -38,8 +38,6 @@ All files in the repository are under the MIT license.  I don't really care what
 This app isn't for general consumption, it's only a helper to investigate a problem and possible solutions.  I don't recommend using any of this code in a shipping product, it's written to get to provide a solution as quickly as possible and not for safety, security, or any other -ity's.  It's not my best work, but it's also not my worst.
 
 # To Do
-* Add logging lib
-* Map inputs to names
 * run tests
 
 # Building
