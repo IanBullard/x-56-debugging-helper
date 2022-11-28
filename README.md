@@ -55,6 +55,9 @@ To run:
 
 # Test Results
 
+## Notes
+All tests are run with the throttle's axis-based inputs set to minimum (both throttles fully back, rotarys fully counter-clockwise, etc) to avoid bumping the device and creating non-ghost input. Unless otherwise stated, the LED lights are set to full white.
+
 ## Just the throttle connected directly into my PC
 
 Currently in progress.
