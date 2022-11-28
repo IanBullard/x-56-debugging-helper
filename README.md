@@ -60,4 +60,28 @@ All tests are run with the throttle's axis-based inputs set to minimum (both thr
 
 ## Just the throttle connected directly into my PC
 
-Currently in progress.
+### 11/28/2022
+
+Result:
+```
+Found throttle
+0 events in 13 hours: 0 events/hour
+```
+
+This is unexpected because I've never seen zero events while developing this test program.
+
+I moved all axis-based inputs to full and ran the test again:
+```
+Found throttle
+0 events in 7.4 hours: 0 events/hour
+```
+
+From this result, I think it's safe to assume that the throttle alone isn't the problem.
+
+## Throttle and stick connected directly into my PC
+
+### 11/28/2022
+
+Note: I had to make the deadzone significantly higher (8192, the previous value was 3072) for these tests.  The stick is clamped to my desk and apparently it's very easy to create inputs if I jostle my desk.  Since I'm looking for ghost input related to switches I don't think this is a problem.
+
+Result:

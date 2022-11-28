@@ -98,7 +98,7 @@ void report_event(const std::string& device, uint32_t timestamp, int axis, int v
     printf("%s, %x, %d, %d\n", device.c_str(), timestamp, axis, value);
 }
 
-const int32_t deadzone = 3072;
+const int32_t deadzone = 8192;
 
 bool in_deadzone(int32_t value) {
     return abs(value) < deadzone;
