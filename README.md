@@ -94,4 +94,45 @@ Found throttle
 
 That ministick event happened when I sat down at the computer after leaving it alone for 3 hours.  The value is large enough to make me think it could be a shadow input but the concern right now is I cannot reproduce the shadow input from the throttle switches.  I had shadow input while developing this app so I don't understand why it no longer happens.  
 
-I'll try again, placing the throttle and stick in their normal positions attached to my desk, and leave it overnight.  There has to be some cause for the shadow inputs.
+I'll try again, placing the throttle and stick in their normal positions attached to my desk.  There has to be some cause for the shadow inputs.
+
+### 11/29/2022
+
+Result:
+```
+Found joystick
+Found throttle
+10:49:37 - Stick : Twist = 8953
+10:49:39 - Stick : C Stick X = -8704
+10:49:41 - Stick : Twist = 8441
+10:49:41 - Stick : Twist = 8457
+13:33:45 - Stick : Twist = 10587
+13:33:46 - Stick : Twist = 16128
+13:33:47 - Stick : Twist = 9546
+13:47:54 - Stick : Twist = 11051
+14:20:49 - Stick : Twist = 9113
+14:20:49 - Stick : C Stick X = -8192
+14:20:50 - Stick : C Stick X = -8960
+11 events in 4.3 hours: 2.6 events/hour
+```
+
+This are all axis inputs while I was at my desk.  It's hard to differentiate what input is caused by my desk movements (it's a standing desk that wobbles a bit) from ghost inputs, if any.  Also, I've never experienced ghost inputs from axis.
+
+So far I'm not replicating the ghost inputs I've seen before "finishing" the test app.  I can come up with two possible causes:
+
+1. I've changed something in my app that "fixes" the shadow inputs.
+    a. For:
+        1. I was getting ghost switch and toggle inputs just a couple of days ago during development of the test app.
+        2. They aren't happening(?) since I switched from SDL_WaitEvent to SDL_WaitEventTimeout
+    b. Against:
+        1. Ghost input is still a possibility on the axis inputs. 
+        2. I moved both devices when I "finished" the test app.
+2. The ghost inputs are from cable interference.
+    a. For:
+        1. I moved both devices after making the SDL_WaitEventTimeout change.
+        2. Difference ghost inputs appear to be happening.
+    b. Against:
+        1. It's a vague and hard-to-test situation
+
+For now, I'll try to change the devices' setup to as closely match the last-known buggy input as I can and repeat the test.
+
