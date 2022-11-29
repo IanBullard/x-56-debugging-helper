@@ -85,3 +85,13 @@ From this result, I think it's safe to assume that the throttle alone isn't the 
 Note: I had to make the deadzone significantly higher (8192, the previous value was 3072) for these tests.  The stick is clamped to my desk and apparently it's very easy to create inputs if I jostle my desk.  Since I'm looking for ghost input related to switches I don't think this is a problem.
 
 Result:
+```
+Found joystick
+Found throttle
+22:11:00 - Throt : Mouse Ministick Y = 31987
+1 events in 3.7 hours: 0.27 events/hour
+```
+
+That ministick event happened when I sat down at the computer after leaving it alone for 3 hours.  The value is large enough to make me think it could be a shadow input but the concern right now is I cannot reproduce the shadow input from the throttle switches.  I had shadow input while developing this app so I don't understand why it no longer happens.  
+
+I'll try again, placing the throttle and stick in their normal positions attached to my desk, and leave it overnight.  There has to be some cause for the shadow inputs.
