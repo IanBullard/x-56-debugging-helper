@@ -18,74 +18,96 @@ const std::string throttle_short_name = "Throt";
 
 // axis
 const std::vector<std::string> joystick_axis_names{
-    "RollX",
-    "RollY",
-    "ThumX",
-    "ThumY",
-    "Yaw"
+    "X Axis",
+    "Y Axis",
+    "C Stick X",
+    "C Stick Y",
+    "Twist" // 4
 };
 
 const std::vector<std::string> throttle_axis_names{
-    "ThroL",
-    "ThroR",
-    "TopSc",
-    "ThumX",
-    "ThumY",
-    "BotSc",
-    "Rtry3",
-    "Rtry4",
+    "Left Throttle",
+    "Right Throttle",
+    "Rotary 1",
+    "Mouse Ministick X",
+    "Mouse Ministick Y",
+    "Rotary 2",
+    "Rotary 3",
+    "Rotary 4", // 7
 };
 
 // button
 const std::vector<std::string> joystick_button_names{
-    "Trigg",
-    "ButtA",
-    "ButtB",
-    "ButtC",
-    "PinkB",
-    "PinkS",
+    "Trigger",
+    "A",
+    "B",
+    "C Stick Click",
+    "D",
+    "Pinky",
+    "H1 Up",
+    "H1 Right",
+    "H1 Down",
+    "H1 Left",
+    "H2 Up",
+    "H2 Right",
+    "H2 Down",
+    "H2 Left",
+    "M1",
+    "M2",
+    "M3" // 16
 };
 
 const std::vector<std::string> throttle_button_names{
-    "ButtE", // 00
-    "ButtF", // 01
-    "ButtG", // 02
-    "ButtI", // 03
-    "ButtH", // 04
-    "Swch1", // 05
-    "Swch2", // 06
-    "Swch3", // 07
-    "Swch4", // 08
-    "Swch5", // 09
-    "Swch6", // 10
-    "Tgl1U", // 11
-    "Tgl1D", // 12
-    "Tg21U", // 13
-    "Tg21D", // 14
-    "Tg31U", // 15
-    "Tg41D", // 16
-    "Tg51U", // 17
-    "Tg61D", // 18
-    "H3Up ", // 19
-    "H3For", // 20
-    "H3Dwn", // 21
-    "H3Bck", // 22
-    "H4Up ", // 23
-    "H4For", // 24
-    "H4Dwn", // 25
-    "H4Bck", // 26
-    "KIUp ", // 27
-    "KIDwn", // 28
-    "ScrFd", // 29
-    "ScrBk", // 30
-    "ThbBt", // 31
-    "ThSld", // 32
+    "E",
+    "F Push",
+    "G Push",
+    "I",
+    "H",
+    "SW 1",
+    "SW 2",
+    "SW 3",
+    "SW 4",
+    "SW 5",
+    "SW 6",
+    "TGL 1 Up",
+    "TGL 1 Down",
+    "TGL 2 Up",
+    "TGL 2 Down",
+    "TGL 3 Up",
+    "TGL 3 Down",
+    "TGL 4 Up",
+    "TGL 4 Down",
+    "H3 Up",
+    "H3 Forward",
+    "H3 Down",
+    "H3 Back",
+    "H4 Up",
+    "H4 Forward",
+    "H4 Down",
+    "H4 Back",
+    "K1 Up",
+    "KI Down",
+    "Scroll FWD",
+    "Scroll BCK",
+    "Mouse Ministick Click",
+    "SLD",
+    "M1",
+    "M2",
+    "S1" // 35
 };
+
+// Hat
+const std::vector<std::string> joystick_hat_names{
+    "POV"
+ };
+
+const std::vector<std::string> throttle_hat_names;
 
 struct JoystickInfo {
     std::string name;
     std::vector<std::string> axis_names;
     std::vector<std::string> button_names;
+    std::vector<std::string> hat_names;
 
     const std::string get_axis_name(int index) {
         if(index < axis_names.size())
@@ -102,6 +124,9 @@ struct JoystickInfo {
     }
 
     const std::string get_hat_name(int index) {
+        if(index < hat_names.size())
+            return hat_names[index];
+
         return fmt::format("Unknown hat {}.", index);
     }
 };
@@ -166,6 +191,7 @@ int main(int argc, char** argv)
             id_to_info[joystick_id].name = joystick_short_name;
             id_to_info[joystick_id].axis_names = joystick_axis_names;
             id_to_info[joystick_id].button_names = joystick_button_names;
+            id_to_info[joystick_id].hat_names = joystick_hat_names;
         }
         else if(name == throttle_name) {
             printf("Found throttle\n");
@@ -175,6 +201,7 @@ int main(int argc, char** argv)
             id_to_info[throttle_id].name = throttle_short_name;
             id_to_info[throttle_id].axis_names = throttle_axis_names;
             id_to_info[throttle_id].button_names = throttle_button_names;
+            id_to_info[throttle_id].hat_names = throttle_hat_names;
         }
     }
 
