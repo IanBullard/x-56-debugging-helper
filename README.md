@@ -24,7 +24,7 @@ I'll try to get a baseling test with no fixes first to see if how the X-56 is ho
 
 All of these tests have a flaw in that no user input will be happening, which could be a factor of how often the bug occurs.  I have had the ghost input bug happen to me during Elite Dangerous while no user input is happening, so I hope these tests will be enough to get some data.
 
-## Try fixes
+### Try fixes
 I've seen the following suggested as fixes for the ghost input.  Depending on the baseline tests, I'll try them in order of how easy they are do do.
 
 1. Change the LED brightness.  I know my own experience this doesn't fix the problem completely, but if it decreases the rate of the inputs it could point to a power problem.
