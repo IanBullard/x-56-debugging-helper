@@ -11,6 +11,8 @@
 #include <unordered_map>
 #include <vector>
 
+const double MAX_RUNTIME_HOURS = 2.0;
+
 const std::string joystick_name = "Saitek Pro Flight X-56 Rhino Stick";
 const std::string joystick_short_name = "Stick";
 const std::string throttle_name = "Saitek Pro Flight X-56 Rhino Throttle";
@@ -137,7 +139,7 @@ void report_event(const std::string& device, uint32_t timestamp, int axis, int v
     printf("%s, %x, %d, %d\n", device.c_str(), timestamp, axis, value);
 }
 
-const int32_t deadzone = 8192;
+const int32_t deadzone = 4096;
 
 bool in_deadzone(int32_t value) {
     return abs(value) < deadzone;
@@ -184,7 +186,6 @@ int main(int argc, char** argv)
     {
         std::string name = std::string(SDL_JoystickNameForIndex(i));
         if(name == joystick_name) {
-            printf("Found joystick\n");
             joystick = SDL_JoystickOpen(i);
             joystick_id = SDL_JoystickInstanceID(joystick);
             id_to_info[joystick_id] = JoystickInfo();
@@ -194,7 +195,6 @@ int main(int argc, char** argv)
             id_to_info[joystick_id].hat_names = joystick_hat_names;
         }
         else if(name == throttle_name) {
-            printf("Found throttle\n");
             throttle = SDL_JoystickOpen(i);
             throttle_id = SDL_JoystickInstanceID(throttle);
             id_to_info[throttle_id] = JoystickInfo();
@@ -213,8 +213,34 @@ int main(int argc, char** argv)
 
     SDL_Event event;
 
+    {
+        std::string test_name;
+        if(joystick != nullptr && throttle != nullptr)
+        {
+            test_name = "Joystick and throttle";
+        }
+        else if (joystick != nullptr)
+        {
+            test_name = "Joystick only";
+        }
+        else if (throttle != nullptr)
+        {
+            test_name = "Throttle only";
+        }
+        else
+        {
+            fmt::print("ERROR: No Logitech X-56 devices connected!\n");
+            exit(-1);
+        }
+        
+        double test_duration = MAX_RUNTIME_HOURS;
+
+        auto time = fmt::localtime(std::time(nullptr));
+        fmt::print("{:%H:%M:%S} - Test {}, {} minutes\n", time, test_name, (int)(test_duration*60.0));
+    }
+
     while(!should_exit) {
-        SDL_WaitEventTimeout(&event, 100);
+        SDL_WaitEventTimeout(&event, 60000);
         auto time = fmt::localtime(std::time(nullptr));
         std::string device;
         std::string input;
@@ -258,6 +284,12 @@ int main(int argc, char** argv)
             event_count++;
             fmt::print("{:%H:%M:%S} - {} : {} = {}\n", time, device, input, value);
         }
+        
+        auto current_time = std::chrono::system_clock::now();
+        std::chrono::duration<double> elapsed_seconds = current_time-start;
+        double hours = elapsed_seconds.count() / 60.0 / 60.0;
+        if(hours >= MAX_RUNTIME_HOURS)
+            should_exit = true;
     }
 
     auto end = std::chrono::system_clock::now();
