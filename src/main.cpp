@@ -11,7 +11,8 @@
 #include <unordered_map>
 #include <vector>
 
-const double MAX_RUNTIME_HOURS = 2.0;
+const double MAX_RUNTIME_HOURS = 4.0;
+const int INPUT_TIMEOUT_MS = 60000;
 
 const std::string joystick_name = "Saitek Pro Flight X-56 Rhino Stick";
 const std::string joystick_short_name = "Stick";
@@ -162,7 +163,9 @@ void clear_startup_events()
 static bool should_exit = false;
 
 void signal_callback_handler(int signum) {
-   should_exit = true;
+    float quit_time = (float)INPUT_TIMEOUT_MS / 1000.0f;
+    fmt::print("SIGINT received, it may take up {:0.1f} seconds to quit.\n", quit_time);
+    should_exit = true;
 }
 
 int main(int argc, char** argv)
@@ -233,14 +236,12 @@ int main(int argc, char** argv)
             exit(-1);
         }
         
-        double test_duration = MAX_RUNTIME_HOURS;
-
         auto time = fmt::localtime(std::time(nullptr));
-        fmt::print("{:%H:%M:%S} - Test {}, {} minutes\n", time, test_name, (int)(test_duration*60.0));
+        fmt::print("{:%H:%M:%S} - Test {}, {:.1f} hours\n", time, test_name, MAX_RUNTIME_HOURS);
     }
 
     while(!should_exit) {
-        SDL_WaitEventTimeout(&event, 60000);
+        SDL_WaitEventTimeout(&event, INPUT_TIMEOUT_MS);
         auto time = fmt::localtime(std::time(nullptr));
         std::string device;
         std::string input;
@@ -296,8 +297,9 @@ int main(int argc, char** argv)
 
     std::chrono::duration<double> elapsed_seconds = end-start;
     double hours = elapsed_seconds.count() / 60.0 / 60.0;
+    double events_per_hour = std::round(((double)event_count/hours)*10.0) / 10.0;
 
-    fmt::print("{} events in {:.2} hours: {:.2} events/hour\n", event_count, hours, (double)event_count/hours);
+    fmt::print("{} events in {:.1f} hours: {:.1f} events/hour\n", event_count, hours, events_per_hour);
 
     if(joystick)
         SDL_JoystickClose(joystick);
