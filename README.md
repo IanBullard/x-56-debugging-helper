@@ -15,14 +15,18 @@ There are several theories on the interet's forums, these are the tests I'll be 
 ### Get a baseline
 I'll try to get a baseling test with no fixes first to see if how the X-56 is hooked up has any affect on the issue.
 
-1. Just the throttle connected directly into my PC.
-2. Throttle and stick connected directly into my PC.
+1. Just the throttle connected directly into my PC. ✓
+2. Throttle and stick connected directly into my PC. ✓
 3. Same as #1 but with an external powered hub.
-4. Same as #2 but with an external powered hub.
+4. Same as #2 but with an external powered hub. ✓
 5. The throttle connected to the PC and the stick connected to the hub
 6. #5 but reversed.
 
 All of these tests have a flaw in that no user input will be happening, which could be a factor of how often the bug occurs.  I have had the ghost input bug happen to me during Elite Dangerous while no user input is happening, so I hope these tests will be enough to get some data.
+
+#### Update
+
+Since starting these tests I've learned that the joystick axis inputs can get ghost inputs as well so I have added just-joystick tests.  Also, test results don't match my previous experience so I may need to revisit my assumptions.
 
 ### Try fixes
 I've seen the following suggested as fixes for the ghost input.  Depending on the baseline tests, I'll try them in order of how easy they are do do.

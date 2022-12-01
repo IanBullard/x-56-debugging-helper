@@ -5,8 +5,6 @@ All tests are run with the throttle's axis-based inputs set to minimum (both thr
 
 ## Just the throttle connected directly into my PC
 
-### 11/28/2022
-
 Result:
 ```
 Found throttle
@@ -25,7 +23,7 @@ From this result, I think it's safe to assume that the throttle alone isn't the 
 
 ## Throttle and stick connected directly into my PC
 
-### 11/28/2022
+### Attempt #1
 
 Note: I had to make the deadzone significantly higher (8192, the previous value was 3072) for these tests.  The stick is clamped to my desk and apparently it's very easy to create inputs if I jostle my desk.  Since I'm looking for ghost input related to switches I don't think this is a problem.
 
@@ -41,7 +39,7 @@ That ministick event happened when I sat down at the computer after leaving it a
 
 I'll try again, placing the throttle and stick in their normal positions attached to my desk.  There has to be some cause for the shadow inputs.
 
-### 11/29/2022
+### Attempt #2
 
 Result:
 ```
@@ -80,4 +78,87 @@ So far I'm not replicating the ghost inputs I've seen before "finishing" the tes
         1. It's a vague and hard-to-test situation
 
 For now, I'll try to change the devices' setup to as closely match the last-known buggy input as I can and repeat the test.
+
+### Attempt #3
+
+Result:
+```
+Found joystick
+Found throttle
+19:12:26 - Stick : Twist = 8809
+19:52:02 - Stick : Twist = 8841
+2 events in 16 hours: 0.13 events/hour
+```
+
+## Throttle only, connected via external powered hub
+
+Result: No events, I forgot to save the output
+
+## Throttle and stick connected via external powered hub
+
+Result:
+```
+Found joystick
+Found throttle
+11:12:19 - Stick : C Stick Y = -9216
+11:12:19 - Stick : C Stick Y = -10240
+11:12:19 - Stick : C Stick Y = -13568
+11:12:19 - Stick : C Stick Y = -22016
+11:12:19 - Stick : C Stick Y = -26368
+11:12:19 - Stick : C Stick Y = -21760
+11:12:19 - Stick : C Stick Y = -18688
+11:12:19 - Stick : C Stick Y = -17920
+11:12:19 - Stick : C Stick Y = -16896
+11:12:19 - Stick : C Stick Y = -16640
+11:12:19 - Stick : C Stick Y = -15360
+11:12:19 - Stick : C Stick Y = -13824
+11:12:19 - Stick : C Stick Y = -12800
+11:12:19 - Stick : C Stick Y = -12288
+11:12:19 - Stick : C Stick X = -8704
+11:12:19 - Stick : C Stick Y = -11520
+11:12:19 - Stick : C Stick X = -9472
+11:12:19 - Stick : C Stick Y = -10752
+11:12:19 - Stick : C Stick X = -9216
+11:12:19 - Stick : C Stick Y = -9984
+11:12:19 - Stick : C Stick X = -9984
+11:12:19 - Stick : C Stick Y = -9216
+11:12:19 - Stick : C Stick X = -9728
+11:12:19 - Stick : C Stick Y = -8192
+11:12:19 - Stick : C Stick X = -9984
+11:12:19 - Stick : C Stick X = -10240
+11:12:20 - Stick : C Stick X = -12032
+11:12:20 - Stick : C Stick X = -12544
+11:12:20 - Stick : C Stick X = -12800
+11:12:20 - Stick : C Stick X = -12288
+11:12:20 - Stick : C Stick X = -13568
+11:12:20 - Stick : C Stick X = -14080
+11:12:20 - Stick : C Stick X = -13824
+11:12:20 - Stick : C Stick X = -12288
+11:12:20 - Stick : C Stick X = -9728
+14:55:15 - Stick : C Stick X = 14304
+14:55:15 - Stick : C Stick X = 31987
+14:55:15 - Stick : C Stick X = 31207
+14:55:15 - Stick : C Stick X = 30947
+14:55:15 - Stick : C Stick X = 11963
+14:56:52 - Stick : C Stick X = -8448
+14:56:53 - Stick : C Stick X = -9216
+16:28:37 - Stick : C Stick X = -8448
+43 events in 9.3 hours: 4.6 events/hour
+```
+
+While not the same ghost input I've seen, it's still more events/hour than the previous tests.
+
+## Throttle in computer, joystick external
+
+```
+Found joystick
+Found throttle
+18:37:26 - Stick : C Stick X = -9984
+21:37:58 - Stick : Twist = 9466
+2 events in 3.1 hours: 0.64 events/hour
+```
+
+At this point, I'm positive that the axis inputs recorded are ghost inputs.  I purposely banged on my desk and the joywick mount which didn't result in any inputs.
+
+## Joystick only in computer
 
