@@ -8,70 +8,49 @@ The test application knows:
 
 The result of the test is the number of ghost events/test time.
 
-For these tests, the test length is hour hours with a axis deadzone of 4096.
+For these tests, the test length is four hours with a axis deadzone of 4096.
 
-## Throttle Only
+All tests are run with the throttle's axis-based inputs set to minimum (both throttles fully back, rotarys fully counter-clockwise, etc) to avoid bumping the device and creating non-ghost input. Unless otherwise stated, the LED lights are set to full white.
 
-### Connected to PC
+## Testing results
 
-Input #?
-
-```
-23:38:52 - Test Throttle only, 4.0 hours
-00:44:06 - Throt : TGL 3 Down = 1
-00:44:06 - Throt : TGL 3 Down = 0
-01:51:03 - Throt : TGL 3 Down = 1
-01:51:03 - Throt : TGL 3 Down = 0
-4 events in 4.0 hours: 1.0 events/hour
-```
-
-Input #?+1
+### Throttle only, motherboard USB port 1
 
 ```
-07:25:32 - Test Throttle only, 4.0 hours
+20:06:43 - Test Throttle only, 4.0 hours
 0 events in 4.0 hours: 0.0 events/hour
 ```
 
-### Connected to external hub
-
-For all of these tests, the throttle is the only device connected to the hub.
-
-#### Belkin F4U073 Port 1
+### Throttle only, motherboard USB port 2
 
 ```
-13:08:04 - Test Throttle only, 4.0 hours
+08:05:28 - Test Throttle only, 4.0 hours
 0 events in 4.0 hours: 0.0 events/hour
 ```
 
-#### Belkin F4U073 Port 2
+### Throttle only, Belkin F4U073 port 1
 
 ```
-17:57:23 - Test Throttle only, 4.0 hours
-18:19:41 - Throt : M1 = 0
-1 events in 4.0 hours: 0.2 events/hour
+12:23:20 - Test Throttle only, 4.0 hours
+13:23:16 - Throt : Rotary 1 = -9984
+13:23:16 - Throt : Rotary 1 = -11776
+13:23:16 - Throt : Rotary 1 = -12800
+13:23:16 - Throt : Rotary 1 = -15104
+13:23:16 - Throt : Rotary 1 = -16128
+13:23:16 - Throt : Rotary 1 = -17920
+13:23:16 - Throt : Rotary 1 = -18432
+13:23:16 - Throt : Rotary 1 = -19968
+13:23:16 - Throt : Rotary 1 = -20992
+13:23:16 - Throt : Rotary 1 = -22784
+13:23:16 - Throt : Rotary 1 = -23552
+13:23:16 - Throt : Rotary 1 = -24320
+13:23:16 - Throt : Rotary 1 = -26112
+13:23:16 - Throt : Rotary 1 = -26624
+14 events in 4.0 hours: 3.5 events/hour
 ```
 
-#### Belkin F4U073 Port 3
+### Throttle only, Belkin F4U073 USB port 2
 
 ```
-10:59:15 - Test Throttle only, 4.0 hours
-11:58:37 - Throt : Scroll FWD = 1
-11:58:37 - Throt : Scroll BCK = 1
-11:58:37 - Throt : Mouse Ministick Click = 1
-11:58:37 - Throt : M1 = 0
-11:58:37 - Throt : Scroll FWD = 0
-11:58:37 - Throt : Scroll BCK = 0
-11:58:37 - Throt : Mouse Ministick Click = 0
-11:58:37 - Throt : M1 = 1
-12:04:07 - Throt : Rotary 4 = -29184
-13:05:19 - Throt : Rotary 4 = -29184
-10 events in 4.0 hours: 2.5 events/hour
-```
 
-#### Belkin F4U073 Port 4
-
-```
-18:13:50 - Test Throttle only, 4.0 hours
-19:13:51 - Throt : Rotary 4 = -29184
-1 events in 4.0 hours: 0.2 events/hour
 ```
