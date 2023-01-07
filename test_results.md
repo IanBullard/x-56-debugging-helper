@@ -17,6 +17,7 @@ All tests are run with the throttle's axis-based inputs set to minimum (both thr
 USB port names are M for motherboard or E for external and the port number (1-4).  The first port is for the stick and the second is for the throttle.
 
 | Test | Ports | Test # | Events/Hour |
+| :-- | :-: | :-: | :-: |
 | Throttle only | M1/- | 1 | 0.0 |
 | Throttle only | M2/- | 1 | 0.0 |
 | Throttle only | E1/- | 1 | 3.5 |
