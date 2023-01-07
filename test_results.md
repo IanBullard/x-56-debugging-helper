@@ -20,7 +20,7 @@ USB port names are M for motherboard or E for external and the port number (1-4)
 
 | Test | Ports | Test # | Events/Hour |
 | :-- | :-: | :-: | :-: |
-| [Throttle only](#throttle-only-m1), motherboard USB port 1) | M1/- | 1 | 0.0 |
+| [Throttle only](#throttle-only-m1) | M1/- | 1 | 0.0 |
 | [Throttle only](#throttle-only-m2) | M2/- | 1 | 0.0 |
 | [Throttle only](#throttle-only-e1) | E1/- | 1 | 3.5 |
 | [Throttle only](#throttle-only-e2) | E2/- | 1 | 0.0 |
