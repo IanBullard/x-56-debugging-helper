@@ -30,15 +30,23 @@ USB port names are M for motherboard or E for external and the port number (1-4)
 | Stick only | E2/- | 1 | 0.0 |
 | Stick only | E3/- | 1 | - |
 | Stick only | E4/- | 1 | - |
+| Both | M1/M2 | 1 | - |
+| Both | E1/M1 | 1 | - |
+| Both | M1/E1 | 1 | - |
+| Both | E1/E2 | 1 | - |
 
 ## Individual Test Results
 
-### Throttle only, motherboard USB port 1
+````md
+<details>
+  <summary>Throttle only, motherboard USB port 1</summary>
+    ```
+    20:06:43 - Test Throttle only, 4.0 hours
+    0 events in 4.0 hours: 0.0 events/hour
+    ```
+</details>
+````
 
-```
-20:06:43 - Test Throttle only, 4.0 hours
-0 events in 4.0 hours: 0.0 events/hour
-```
 
 ### Throttle only, motherboard USB port 2
 
