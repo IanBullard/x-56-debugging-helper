@@ -40,6 +40,7 @@ USB port names are M for motherboard or E for external and the port number (1-4)
 ````md
 <details>
   <summary>Throttle only, motherboard USB port 1</summary>
+  
     ```
     20:06:43 - Test Throttle only, 4.0 hours
     0 events in 4.0 hours: 0.0 events/hour
