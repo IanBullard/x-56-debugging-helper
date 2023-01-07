@@ -12,51 +12,48 @@ For these tests, the test length is four hours with a axis deadzone of 4096.
 
 All tests are run with the throttle's axis-based inputs set to minimum (both throttles fully back, rotarys fully counter-clockwise, etc) to avoid bumping the device and creating non-ghost input. Unless otherwise stated, the LED lights are set to full white.
 
+The external USB hug I'm using is a Belkin F4U073.
+
 ## Summary
 
 USB port names are M for motherboard or E for external and the port number (1-4).  The first port is for the stick and the second is for the throttle.
 
 | Test | Ports | Test # | Events/Hour |
 | :-- | :-: | :-: | :-: |
-| Throttle only | M1/- | 1 | 0.0 |
-| Throttle only | M2/- | 1 | 0.0 |
-| Throttle only | E1/- | 1 | 3.5 |
-| Throttle only | E2/- | 1 | 0.0 |
-| Throttle only | E3/- | 1 | 0.0 |
-| Throttle only | E4/- | 1 | 6.5 |
-| Stick only | M1/- | 1 | 15.2 |
-| Stick only | M2/- | 1 | 0.5 |
-| Stick only | E1/- | 1 | 0.0 |
-| Stick only | E2/- | 1 | 0.0 |
-| Stick only | E3/- | 1 | - |
-| Stick only | E4/- | 1 | - |
+| [Throttle only](#throttle-only-m1), motherboard USB port 1) | M1/- | 1 | 0.0 |
+| [Throttle only](#throttle-only-m2) | M2/- | 1 | 0.0 |
+| [Throttle only](#throttle-only-e1) | E1/- | 1 | 3.5 |
+| [Throttle only](#throttle-only-e2) | E2/- | 1 | 0.0 |
+| [Throttle only](#throttle-only-e3) | E3/- | 1 | 0.0 |
+| [Throttle only](#throttle-only-e4) | E4/- | 1 | 6.5 |
+| [Stick only](#stick-only-m1) | M1/- | 1 | 15.2 |
+| [Stick only](#stick-only-m2) | M2/- | 1 | 0.5 |
+| [Stick only](#stick-only-e1) | E1/- | 1 | 0.0 |
+| [Stick only](#stick-only-e2) | E2/- | 1 | 0.0 |
+| [Stick only](#stick-only-e3) | E3/- | 1 | - |
+| [Stick only](#stick-only-e4) | E4/- | 1 | - |
 | Both | M1/M2 | 1 | - |
 | Both | E1/M1 | 1 | - |
 | Both | M1/E1 | 1 | - |
 | Both | E1/E2 | 1 | - |
 
 ## Individual Test Results
-````md
-<details>
-  <summary>Throttle only, motherboard USB port 1</summary>
 
-    ```
-    20:06:43 - Test Throttle only, 4.0 hours
-    0 events in 4.0 hours: 0.0 events/hour
-    ```
-</details>
+### Throttle only M1
 
-````
+```
+20:06:43 - Test Throttle only, 4.0 hours
+0 events in 4.0 hours: 0.0 events/hour
+```
 
-
-### Throttle only, motherboard USB port 2
+### Throttle only M2
 
 ```
 08:05:28 - Test Throttle only, 4.0 hours
 0 events in 4.0 hours: 0.0 events/hour
 ```
 
-### Throttle only, Belkin F4U073 port 1
+### Throttle only E1
 
 ```
 12:23:20 - Test Throttle only, 4.0 hours
@@ -77,21 +74,21 @@ USB port names are M for motherboard or E for external and the port number (1-4)
 14 events in 4.0 hours: 3.5 events/hour
 ```
 
-### Throttle only, Belkin F4U073 USB port 2
+### Throttle only E2
 
 ```
 17:00:45 - Test Throttle only, 4.0 hours
 0 events in 4.0 hours: 0.0 events/hour
 ```
 
-### Throttle only, Belkin F4U073 USB port 3
+### Throttle only E3
 
 ```
 21:01:49 - Test Throttle only, 4.0 hours
 0 events in 4.0 hours: 0.0 events/hour
 ```
 
-### Throttle only, Belkin F4U073 USB port 4
+### Throttle only E4
 
 ```
 07:58:37 - Test Throttle only, 4.0 hours 
@@ -124,7 +121,7 @@ USB port names are M for motherboard or E for external and the port number (1-4)
 26 events in 4.0 hours: 6.5 events/hour  
 ```
 
-### Stick only, motherboard USB port 1
+### Stick only M1
 
 ```
 16:35:31 - Test Joystick only, 4.0 hours
@@ -143,7 +140,7 @@ SIGINT received, it may take up 60.00 seconds to quit.
 11 events in 0.7 hours: 15.2 events/hour
 ```
 
-### Stick only, motherboard USB port 2
+### Stick only M2
 
 ```
 22:14:49 - Test Joystick only, 4.0 hours
@@ -152,13 +149,24 @@ SIGINT received, it may take up 60.00 seconds to quit.
 2 events in 4.0 hours: 0.5 events/hour
 ```
 
-### Stick only, Belkin F4U073 port 1
+### Stick only E1
 
 ```
 08:11:54 - Test Joystick only, 4.0 hours
 0 events in 4.0 hours: 0.0 events/hour
 ```
-### Stick only, Belkin F4U073 port 2
+
+### Stick only E2
+
+```
+```
+
+### Stick only E3
+
+```
+```
+
+### Stick only E4
 
 ```
 ```
