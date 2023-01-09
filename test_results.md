@@ -20,22 +20,22 @@ USB port names are M for motherboard or E for external and the port number (1-4)
 
 | Test | Ports | Test # | Events/Hour |
 | :-- | :-: | :-: | :-: |
-| [Throttle only](#throttle-only-m1) | M1/- | 1 | 0.0 |
-| [Throttle only](#throttle-only-m2) | M2/- | 1 | 0.0 |
-| [Throttle only](#throttle-only-e1) | E1/- | 1 | 3.5 |
-| [Throttle only](#throttle-only-e2) | E2/- | 1 | 0.0 |
-| [Throttle only](#throttle-only-e3) | E3/- | 1 | 0.0 |
-| [Throttle only](#throttle-only-e4) | E4/- | 1 | 6.5 |
-| [Stick only](#stick-only-m1) | M1/- | 1 | 15.2 |
+| [Throttle only](#throttle-only-m1) | -/M1 | 1 | 0.0 |
+| [Throttle only](#throttle-only-m2) | -/M2 | 1 | 0.0 |
+| [Throttle only](#throttle-only-e1) | -/E1 | 1 | 3.5 |
+| [Throttle only](#throttle-only-e2) | -/E2 | 1 | 0.0 |
+| [Throttle only](#throttle-only-e3) | -/E3 | 1 | 0.0 |
+| [Throttle only](#throttle-only-e4) | -/E4 | 1 | 6.5 |
+| [Stick only](#stick-only-m1) | M1/- | 1 | 6.2 |
 | [Stick only](#stick-only-m2) | M2/- | 1 | 0.5 |
 | [Stick only](#stick-only-e1) | E1/- | 1 | 0.0 |
 | [Stick only](#stick-only-e2) | E2/- | 1 | 0.0 |
-| [Stick only](#stick-only-e3) | E3/- | 1 | - |
-| [Stick only](#stick-only-e4) | E4/- | 1 | - |
-| Both | M1/M2 | 1 | - |
-| Both | E1/M1 | 1 | - |
-| Both | M1/E1 | 1 | - |
-| Both | E1/E2 | 1 | - |
+| [Stick only](#stick-only-e3) | E3/- | 1 | 0.0 |
+| [Stick only](#stick-only-e4) | E4/- | 1 | 0.0 |
+| [Both](#both-m1m2) | M1/M2 | 1 | 0.5 |
+| [Both](#both-e1m1) | E1/M1 | 1 | 0.0 |
+| [Both](#both-m1e1) | M1/E1 | 1 | - |
+| [Both](#both-e1e2) | E1/E2 | 1 | - |
 
 ## Individual Test Results
 
@@ -124,20 +124,33 @@ USB port names are M for motherboard or E for external and the port number (1-4)
 ### Stick only M1
 
 ```
-16:35:31 - Test Joystick only, 4.0 hours
-16:35:40 - Stick : Twist = 5014
-16:35:40 - Stick : Twist = 8040
-16:35:40 - Stick : Twist = 4517
-16:35:40 - Stick : C Stick X = -5632
-16:35:42 - Stick : C Stick Y = -4352
-17:17:51 - Stick : Twist = 8553
-17:17:51 - Stick : Twist = 4533
-17:17:51 - Stick : C Stick Y = -4096
-17:17:51 - Stick : Twist = 10058
-17:17:52 - Stick : Twist = 8056
-17:17:53 - Stick : Twist = 6551
-SIGINT received, it may take up 60.00 seconds to quit.
-11 events in 0.7 hours: 15.2 events/hour
+16:57:31 - Test Joystick only, 4.0 hour
+17:17:51 - Stick : C Stick Y = -4096   
+17:17:53 - Stick : Twist = 7880        
+17:17:53 - Stick : C Stick X = -5120   
+17:17:54 - Stick : Twist = 7384        
+17:22:27 - Stick : C Stick X = -7168   
+17:22:30 - Stick : Twist = 6583        
+17:22:38 - Stick : Twist = 7047        
+17:22:39 - Stick : Twist = 8072        
+17:25:58 - Stick : C Stick X = -7168   
+17:26:00 - Stick : Twist = 8072        
+17:42:44 - Stick : Twist = 6519        
+17:42:45 - Stick : Twist = 7047        
+19:51:03 - Stick : Twist = 7400        
+19:51:05 - Stick : C Stick Y = -4608   
+19:52:06 - Stick : Twist = 7416        
+19:55:27 - Stick : C Stick X = -7168   
+19:55:31 - Stick : Twist = 5414        
+19:55:32 - Stick : Twist = 7400        
+19:55:40 - Stick : Twist = 8393        
+20:05:41 - Stick : C Stick Y = -5632   
+20:05:42 - Stick : Twist = 6887        
+20:10:49 - Stick : Twist = 4901        
+20:26:54 - Stick : C Stick X = -6144   
+20:31:30 - Stick : C Stick X = -6912   
+20:31:31 - Stick : C Stick X = -6144   
+25 events in 4.0 hours: 6.2 events/hour
 ```
 
 ### Stick only M2
@@ -159,14 +172,46 @@ SIGINT received, it may take up 60.00 seconds to quit.
 ### Stick only E2
 
 ```
+15:07:14 - Test Joystick only, 4.0 hours
+0 events in 4.0 hours: 0.0 events/hour
 ```
 
 ### Stick only E3
 
 ```
+19:12:33 - Test Joystick only, 4.0 hours
+0 events in 4.0 hours: 0.0 events/hour
 ```
 
 ### Stick only E4
+
+```
+10:58:52 - Test Joystick only, 4.0 hours
+0 events in 4.0 hours: 0.0 events/hour
+```
+
+### Both M1/M2
+
+```
+09:59:05 - Test Joystick and throttle, 4.0 hours
+12:16:14 - Stick : Twist = 4853
+12:53:54 - Stick : Twist = 6935
+2 events in 4.0 hours: 0.5 events/hour
+```
+
+### Both E1/M1
+
+```
+16:22:41 - Test Joystick and throttle, 4.0 hours
+0 events in 4.0 hours: 0.0 events/hour
+```
+
+### Both M1/E1
+
+```
+```
+
+### Both E1/E2
 
 ```
 ```
