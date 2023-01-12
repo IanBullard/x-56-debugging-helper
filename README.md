@@ -1,44 +1,38 @@
 # x-56-debugging-helper
 An SDL2-based input watcher to help track down ghost-inputs on the X-56 H.O.T.A.S.
 
-## Current status
-I'm running tests and [recording results](test_results.md) as time permits
+## TL;DR
+I own a [Logitech X56 H.O.T.A.S.](https://www.logitechg.com/en-us/products/space/x56-space-flight-vr-simulator-controller.html) that I've used to mostly play [Elite Dangerous](https://www.elitedangerous.com/) and I'd like to move onto other games.  Since moving my desk to another room, the X56 has started generating ghost inputs, meaning that without touching anything on the device it'll send button/toggle/axis events to the computer.  After losing a ship to a ghost input turing on silent running while in combat, I decided to track down the problem.
 
-## The problem
-The Logitech's X-56 H.O.T.A.S. can sometimes tell the computer that an input has happened when actually it hasn't.  This is especially common with the switches on the throttle.  However, the ghost inputs don't happen at regular intervals.  Sometimes the inputs can be 20-60 minutes apart.  
+Now the true TL;DR: there was electrical noise in the USB cable and adding ferrite cores solved the issue. Specifically, [13mm external diameter/5mm internal diameter cores from this pack available on Amazon](https://www.amazon.com/gp/product/B00V4MMIBW) (not an affiliate link).  I placed two of them on each USB cable (throttle and stick) about two inches away from each end.
 
-## The Tester
-This app will monitor the X-56 for inputs for four hours and log when and what input happened.  This will allow me to try out different solutions and test without waiting for ghost inputs to occur.  I can set up a test, plug in the throttle and/or stick, and walk away.  
+## What the application does
+This console application finds connected X-56 stick/throttles then sits and waits for any inputs from those devices.  Any inputs that occur while the program is running is reported and counted.  After four hours, it displays the number of inputs that occured for the stick/throttle.
 
-## Tests
-My first attempt at narrowing down the problem assumed that the ghost input was due to some sort of power/signal problem.  The test result suggested a different cause: which port the device is plugged into. The original test suite didn't take which USB port the device was plugged into consideration so I've reset my testing plans.
+Note: I've changed how input events are reported since my [results](test_results.md). The app originally only tracked the number of inputs from both devices. I've changed the code to report inputs from the throttle and stick separately as well as combined.  I did this because while copy/pasting test results I realized that the actual ghost inputs doesn't mean much, but which device is reporting ghost inputs is important.  If I were to do this all again, I'd only keep track of the summary of ghost inputs per device and not all inputs.
 
-### Get a baseline
-Testing matrix:
+## My Test results
 
-1. Throttle plugged into motherboard port 1/2
-2. Stick plugged into motherboard port 1/2
-3. Throttle + stick port combinations
-4. 1-3 repeated with external powered hub.
+The idea was to plug in my stick/throttle in different configurations and then not touch them to record the number of ghost inputs. I wanted to be able to monitor the inputs for hours at a time because the ghost inputs can be 20-60 minutes apart.  A user can set up a test with the X-56 throttle and/or stick and then walk away for four hours to get data on any ghost inputs.
 
-All of these tests have a flaw in that no user input will be happening, which could be a factor of how often the bug occurs.  I have had the ghost input bug happen to me during Elite Dangerous while no user input is happening, so I hope these tests will be enough to get some data.
+At first, I thought the ghost input problem may be related to what USB port the device was plugged into.  In the end, I was able to collect enough data to prove that wrong and fix the actual problem suing this application.  I'm releasing the source code and my test data in hopes that it can solve other people's problems.
+
+All of my test results are on [another page](test_results.md).
 
 ### Suggested fixes
-I've seen the following suggested as fixes for the ghost input.  Depending on the baseline tests, I'll try them in order of how easy they are do do.
+I've seen the following suggested as fixes for the ghost input.  If you do not get the same results as I have, I suggest testing these (listed in order from least effort to most effort):
 
-1. Change the LED brightness.  I know my own experience this doesn't fix the problem completely, but if it decreases the rate of the inputs it could point to a power problem.
-2. Ferrite cores on the USB cable, one near the device and one near the plug.
-3. Extra power cable cable (uses two USB male plugs and one female plug) to boost the power over the cable
+1. Change the LED brightness.
+2. Ferrite cores on the USB cable, one near the device and one near the plug 2" away from each end.
+3. [Extra power cable cable](https://www.amazon.com/gp/product/B06ZY98462) (not an affiliate link) to boost the power over the cable
 4. Open the device and make sure there's no pinched cables
 5. Place ferrite cores on the cables inside the device.
 
 # License
-All files in the repository are under the MIT license.
+All files in the repository are under the [MIT license](LICENSE).
 
 # Notes
 This app isn't for general consumption, it's only a helper to investigate a problem and possible solutions.  I don't recommend using any of this code in a shipping product, it's written to get to provide a solution as quickly as possible and not for safety, security, or any other -ty's.  It's not my best work, but it's also not my worst.
-
-The code does translate input information from SDL2 to text that matches the labels on the devices.
 
 # Building
 I'm using xmake as a build system because it's the fastest way I know how to get an SDL2 console app up and running.  To build:
@@ -47,5 +41,6 @@ I'm using xmake as a build system because it's the fastest way I know how to get
 
 To run:
 
-`./build/windows/x64/release/console.exe`
+`./build/windows/x64/release/test-hotas.exe`
 
+While it's possible that this project will compile on Linux/Mac, I have not done any testing on any platform besides Windows 11.
