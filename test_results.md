@@ -28,7 +28,7 @@ Testing matrix:
 USB port names are M for motherboard or E for external and the port number (1-4).  The first port is for the stick and the second is for the throttle.
 
 | Test | Ports | Events/Hour |
-| :-- | :-: | :-: | :-: |
+| :-- | :-: | :-: |
 | [Throttle only](#throttle-only-m1) | -/M1 | 0.0 |
 | [Throttle only](#throttle-only-m2) | -/M2 | 0.0 |
 | [Throttle only](#throttle-only-e1) | -/E1 | 3.5 |
@@ -63,6 +63,7 @@ Testing matrix:
 3. Keep the cables away from all other cables (as best as possible).
 
 | Test | Ports | Events/Hour |
+| :-- | :-: | :-: |
 | [Cables twisted](#cables-twisted) | M1/M2 | 135.7 |
 | [Through desk](#through-desk) | M1/M2 | 112.5 |
 | [Cables separated](#cables-separated) | M1/M2 | 302.5 |
@@ -81,6 +82,7 @@ Testing matrix:
 4. Keep the cables away from all other cables (as best as possible).
 
 | Test | Ports | Events/Hour |
+| :-- | :-: | :-: |
 | [Cables bundled](#ferrite-cables-bundled) | M1/M2 | 0.0 |
 | [Cables twisted](#ferrite-cables-twisted) | M1/M2 | 0.0 |
 | [Through desk](#ferrite-through-desk) | M1/M2 | 0.0 |
